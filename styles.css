@@ -1,0 +1,580 @@
+:root {
+  --paper: #f7f1e8;
+  --paper-soft: #fbf8f1;
+  --ink: #26231f;
+  --muted: #6f665c;
+  --line: #d8cbbb;
+  --sage: #657864;
+  --wine: #823f44;
+  --clay: #c89b7b;
+  --white: #fffdf8;
+  --shadow: 0 24px 60px rgba(38, 35, 31, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    "Pretendard",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    system-ui,
+    sans-serif;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -80px;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--white);
+  padding: 10px 14px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(247, 241, 232, 0.94);
+}
+
+.top-note {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px 18px;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.top-note a {
+  border-bottom: 1px solid currentColor;
+}
+
+.brand-row {
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  padding: 28px 20px 18px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family:
+    "Noto Serif KR",
+    "Nanum Myeongjo",
+    Georgia,
+    serif;
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.brand-row p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 54px);
+  padding: 16px 20px 18px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.main-nav a {
+  position: relative;
+  white-space: nowrap;
+}
+
+.main-nav a::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--wine);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition: 160ms ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(34px, 6vw, 96px);
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(54px, 8vw, 112px) 24px 72px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--wine);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.feature-band h2,
+.section-heading h2,
+.topic-panel h2,
+.manifesto h2 {
+  font-family:
+    "Noto Serif KR",
+    "Nanum Myeongjo",
+    Georgia,
+    serif;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.hero h1 {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(48px, 8vw, 112px);
+}
+
+.hero-lede {
+  max-width: 580px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 21px);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.button.primary {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.button.ghost {
+  background: transparent;
+}
+
+.image-collage {
+  position: relative;
+  min-height: 620px;
+}
+
+.photo {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.photo-large {
+  right: 6%;
+  top: 24px;
+  width: 62%;
+  height: 520px;
+}
+
+.photo-small {
+  width: 42%;
+  height: 260px;
+  border: 12px solid var(--paper);
+}
+
+.photo-small.top {
+  left: 0;
+  top: 0;
+}
+
+.photo-small.bottom {
+  left: 14%;
+  bottom: 8px;
+}
+
+.feature-band {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(280px, 1fr) auto;
+  gap: clamp(24px, 4vw, 54px);
+  align-items: center;
+  padding: clamp(42px, 6vw, 76px) max(24px, calc((100vw - 1240px) / 2));
+  background: var(--ink);
+  color: var(--paper-soft);
+}
+
+.feature-band h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 58px);
+}
+
+.feature-band p:not(.eyebrow) {
+  margin: 0;
+  color: #e4d9cb;
+  font-size: 17px;
+}
+
+.feature-band a {
+  justify-self: end;
+  border-bottom: 1px solid currentColor;
+  color: var(--paper-soft);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.section-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 120px) 24px 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 70px);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.article-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.article-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.article-card div {
+  padding: 22px;
+}
+
+.category {
+  margin: 0 0 10px;
+  color: var(--sage);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.article-card h3 {
+  margin: 0;
+  font-family:
+    "Noto Serif KR",
+    "Nanum Myeongjo",
+    Georgia,
+    serif;
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.article-card p:not(.category) {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.category-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1240px;
+  margin: clamp(72px, 9vw, 120px) auto 0;
+  padding: 0 24px;
+  gap: 18px;
+}
+
+.topic-panel {
+  min-height: 320px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: #eee4d7;
+}
+
+.topic-panel:nth-child(2) {
+  background: #e5e1d4;
+}
+
+.topic-panel:nth-child(3) {
+  background: #efe8de;
+}
+
+.topic-panel span {
+  color: var(--wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+}
+
+.topic-panel h2 {
+  margin: 70px 0 12px;
+  font-size: clamp(31px, 4vw, 48px);
+}
+
+.topic-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.manifesto {
+  margin-top: clamp(72px, 9vw, 120px);
+  padding: clamp(60px, 8vw, 110px) 24px;
+  background:
+    linear-gradient(rgba(247, 241, 232, 0.88), rgba(247, 241, 232, 0.9)),
+    url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=85")
+      center / cover;
+  text-align: center;
+}
+
+.manifesto h2 {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: clamp(38px, 6vw, 82px);
+}
+
+.manifesto p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+.archive {
+  padding-bottom: clamp(72px, 9vw, 120px);
+}
+
+.archive-list {
+  border-top: 1px solid var(--line);
+}
+
+.archive-list a {
+  display: grid;
+  grid-template-columns: 150px 1fr 90px;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-list span {
+  color: var(--sage);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.archive-list strong {
+  font-family:
+    "Noto Serif KR",
+    "Nanum Myeongjo",
+    Georgia,
+    serif;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.archive-list em {
+  color: var(--muted);
+  font-size: 13px;
+  font-style: normal;
+  text-align: right;
+}
+
+.site-footer {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 52px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--paper-soft);
+  text-align: center;
+}
+
+.site-footer .brand-name {
+  font-size: 34px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer > a:last-child {
+  margin-top: 12px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .main-nav {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .hero,
+  .feature-band,
+  .article-grid,
+  .category-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 42px;
+  }
+
+  .image-collage {
+    min-height: 560px;
+  }
+
+  .feature-band a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-note {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .brand-row {
+    padding-top: 22px;
+  }
+
+  .main-nav {
+    gap: 14px 18px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding-inline: 18px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .image-collage {
+    min-height: 430px;
+  }
+
+  .photo-large {
+    right: 0;
+    width: 72%;
+    height: 340px;
+  }
+
+  .photo-small {
+    width: 48%;
+    height: 180px;
+    border-width: 8px;
+  }
+
+  .photo-small.bottom {
+    left: 8%;
+  }
+
+  .feature-band,
+  .section-wrap,
+  .category-strip {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .archive-list a {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .archive-list em {
+    text-align: left;
+  }
+}
