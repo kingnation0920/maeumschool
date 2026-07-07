@@ -30,6 +30,14 @@ for (const file of ["robots.txt", "sitemap.xml", "feed.xml"]) {
   assert.equal(existsSync(file), true, `missing SEO file: ${file}`);
 }
 
+const naverVerificationFile = "naverfe88afb46308e0d3e887803ad4ec4466.html";
+assert.equal(existsSync(naverVerificationFile), true, "missing Naver verification file");
+assert.match(
+  readFileSync(naverVerificationFile, "utf8"),
+  /naver-site-verification: naverfe88afb46308e0d3e887803ad4ec4466\.html/,
+  "Naver verification file content is invalid",
+);
+
 assert.match(feed, /<title>마음결혼학교<\/title>/, "RSS title is not valid Korean");
 assert.match(feed, /커플과 부부를 위한 관계심리/, "RSS description is not valid Korean");
 assert.doesNotMatch(feed, /�|留|덉|쓬|寃|숆/, "RSS still contains mojibake");
