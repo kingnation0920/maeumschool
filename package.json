@@ -1,0 +1,10 @@
+{
+  "name": "maeumschool",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node tests/site-structure.test.mjs"
+  }
+}
