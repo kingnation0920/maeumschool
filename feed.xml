@@ -6,15 +6,13 @@
     <atom:link href="https://maeumschool.kr/feed.xml" rel="self" type="application/rss+xml" />
     <description>커플과 부부를 위한 관계심리, 위기 회복, 성심리 콘텐츠 매거진</description>
     <language>ko</language>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0900</lastBuildDate>
-    <!-- 글 발행 시 아래 형식으로 item을 추가합니다.
+    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 +0900</lastBuildDate>
     <item>
-      <title>글 제목</title>
-      <link>https://maeumschool.kr/blog/slug</link>
-      <guid>https://maeumschool.kr/blog/slug</guid>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 +0900</pubDate>
-      <description>글 요약</description>
+      <title>부부 대화 주제 친밀함을 회복하는 마음의 언어</title>
+      <link>https://maeumschool.kr/posts/bubu-daehwa/</link>
+      <guid>https://maeumschool.kr/posts/bubu-daehwa/</guid>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0900</pubDate>
+      <description>부부 대화 주제를 일상적인 업무나 육아 정보에서 벗어나 서로의 정서적 욕구를 채워주는 방향으로 전환하는 법을 다룹니다.</description>
     </item>
-    -->
   </channel>
 </rss>
