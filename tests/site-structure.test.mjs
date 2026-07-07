@@ -38,6 +38,9 @@ assert.match(
   "Naver verification file content is invalid",
 );
 
+assert.match(html, /wcs\.pstatic\.net\/wcslog\.js/, "missing Naver Analytics script");
+assert.match(html, /1af85d89318d180/, "missing Naver Analytics site id");
+
 assert.match(feed, /<title>마음결혼학교<\/title>/, "RSS title is not valid Korean");
 assert.match(feed, /커플과 부부를 위한 관계심리/, "RSS description is not valid Korean");
 assert.doesNotMatch(feed, /�|留|덉|쓬|寃|숆/, "RSS still contains mojibake");
