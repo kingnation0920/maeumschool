@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>마음결혼학교</title>
+    <link>https://maeumschool.kr/</link>
+    <atom:link href="https://maeumschool.kr/feed.xml" rel="self" type="application/rss+xml" />
+    <description>커플과 부부를 위한 관계심리, 위기 회복, 성심리 콘텐츠 매거진</description>
+    <language>ko</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0900</lastBuildDate>
+    <!-- 글 발행 시 아래 형식으로 item을 추가합니다.
+    <item>
+      <title>글 제목</title>
+      <link>https://maeumschool.kr/blog/slug</link>
+      <guid>https://maeumschool.kr/blog/slug</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0900</pubDate>
+      <description>글 요약</description>
+    </item>
+    -->
+  </channel>
+</rss>
