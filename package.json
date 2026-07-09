@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/serve.mjs",
+    "publish:queued": "node scripts/publish-queued-posts.mjs",
     "test": "node tests/site-structure.test.mjs"
   }
 }
