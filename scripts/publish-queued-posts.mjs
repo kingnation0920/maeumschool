@@ -29,8 +29,10 @@ if (queuedFolders.length === 0) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
+const limitArgument = process.argv.find((argument) => argument.startsWith("--limit="));
+const limit = limitArgument ? Number.parseInt(limitArgument.replace("--limit=", ""), 10) : queuedFolders.length;
 
-for (const folderPath of queuedFolders) {
+for (const folderPath of queuedFolders.slice(0, Number.isFinite(limit) ? limit : queuedFolders.length)) {
   const folderName = basename(folderPath);
 
   try {
