@@ -674,6 +674,18 @@ a {
   margin: 0 auto;
 }
 
+.post-body .article-image {
+  margin: clamp(32px, 5vw, 52px) 0;
+}
+
+.post-body .article-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
 .post-body h2 {
   margin-top: clamp(46px, 7vw, 78px);
   color: var(--ink);

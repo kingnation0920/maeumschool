@@ -6,6 +6,7 @@ const css = readFileSync("styles.css", "utf8");
 const feed = readFileSync("feed.xml", "utf8");
 const source = `${html}\n${css}`;
 const postPath = "posts/bubu-daehwa/index.html";
+const problemFightPath = "posts/problem-fight/index.html";
 
 for (const label of ["홈", "관계심리", "위기와 회복", "성심리", "전체 글"]) {
   assert.match(html, new RegExp(`>${label}<`), `missing menu item: ${label}`);
@@ -62,6 +63,9 @@ assert.match(feed, /posts\/bubu-daehwa/, "RSS does not include the new post");
 assert.match(feed, /<title>마음결혼학교<\/title>/, "RSS title is not valid Korean");
 assert.match(feed, /커플과 부부를 위한 관계심리/, "RSS description is not valid Korean");
 assert.doesNotMatch(feed, /�|留|덉|쓬|寃|숆/, "RSS still contains mojibake");
+
+assert.equal(existsSync(problemFightPath), true, "missing problem-fight post page");
+assert.match(css, /\.post-body \.article-image img\s*\{[^}]*width:\s*100%[^}]*height:\s*auto/s, "post images must keep their aspect ratio on narrow screens");
 
 for (const folder of ["블로그 글 대기", "블로그 글 성공", "블로그 글 실패"]) {
   assert.equal(existsSync(folder), true, `missing blog workflow folder: ${folder}`);
