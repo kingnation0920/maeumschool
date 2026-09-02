@@ -697,6 +697,7 @@ a {
   color: #4a4038;
   font-size: 18px;
   line-height: 1.92;
+  overflow-wrap: anywhere;
 }
 
 .post-footer {

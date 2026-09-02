@@ -66,6 +66,7 @@ assert.doesNotMatch(feed, /�|留|덉|쓬|寃|숆/, "RSS still contains mojibak
 
 assert.equal(existsSync(problemFightPath), true, "missing problem-fight post page");
 assert.match(css, /\.post-body \.article-image img\s*\{[^}]*width:\s*100%[^}]*height:\s*auto/s, "post images must keep their aspect ratio on narrow screens");
+assert.match(css, /\.post-body p\s*\{[^}]*overflow-wrap:\s*anywhere/s, "post body text must wrap long source URLs on narrow screens");
 
 for (const folder of ["블로그 글 대기", "블로그 글 성공", "블로그 글 실패"]) {
   assert.equal(existsSync(folder), true, `missing blog workflow folder: ${folder}`);
