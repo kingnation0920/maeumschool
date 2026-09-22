@@ -129,6 +129,52 @@ function buildPostHtml({ title, lines, slug, imageFiles }) {
     )
     .join("\n");
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: title,
+        description: lines[1] || title,
+        datePublished: today,
+        dateModified: today,
+        inLanguage: "ko-KR",
+        mainEntityOfPage: `${siteUrl}/posts/${slug}/`,
+        image: `${siteUrl}/posts/${slug}/1${imageFiles[0] ? extname(imageFiles[0]).toLowerCase() : ".jpg"}`,
+        author: {
+          "@type": "Person",
+          name: "사람과성장 부부상담팀",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "마음결혼학교",
+          url: siteUrl,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "부부 갈등이나 대화 단절은 상담으로 극복할 수 있나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "서로의 대화 패턴과 무의식적 방어기제를 객관적으로 이해하고 감정중심치료(EFT) 등 전문 소통 훈련을 거치면 오랜 침묵과 갈등을 충분히 회복할 수 있습니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "배우자가 상담을 거부할 때는 어떻게 해야 하나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "부부 중 한 사람만 먼저 개인상담을 시작해도 자신의 반응 양식이 바뀌면서 상대방의 태도와 부부 관계 역동에 긍정적인 변화를 이끌어낼 수 있습니다.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -146,6 +192,7 @@ function buildPostHtml({ title, lines, slug, imageFiles }) {
     <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -170,10 +217,25 @@ function buildPostHtml({ title, lines, slug, imageFiles }) {
           <p class="eyebrow">relationship psychology</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="post-meta">관계심리 · ${today}</p>
+          <div class="direct-answer-box" style="background: #f8fafc; border-left: 4px solid #3b82f6; padding: 16px 20px; margin: 20px 0 0; border-radius: 4px;">
+            <p style="font-weight: 700; margin-bottom: 6px; color: #1e293b; font-size: 0.95rem;">💡 핵심 요약 (Direct Answer)</p>
+            <p style="margin: 0; color: #334155; line-height: 1.6; font-size: 0.9rem;">${escapeHtml(lines[1] || title)}</p>
+          </div>
         </header>
         <div class="post-body">
 ${body}
 ${remainingImages}
+          <section class="faq-section" style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
+            <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; color: #1e293b;">자주 묻는 질문 (FAQ)</h2>
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1rem; font-weight: 600; color: #1e293b; margin-bottom: 4px;">Q. 부부 갈등이나 대화 단절은 상담으로 극복할 수 있나요?</h3>
+              <p style="color: #475569; font-size: 0.9rem; line-height: 1.6; margin: 0;">서로의 대화 패턴과 무의식적 방어기제를 객관적으로 이해하고 감정중심치료(EFT) 등 전문 소통 훈련을 거치면 오랜 침묵과 갈등을 충분히 회복할 수 있습니다.</p>
+            </div>
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1rem; font-weight: 600; color: #1e293b; margin-bottom: 4px;">Q. 배우자가 상담을 거부할 때는 어떻게 해야 하나요?</h3>
+              <p style="color: #475569; font-size: 0.9rem; line-height: 1.6; margin: 0;">부부 중 한 사람만 먼저 개인상담을 시작해도 자신의 반응 양식이 바뀌면서 상대방의 태도와 부부 관계 역동에 긍정적인 변화를 이끌어낼 수 있습니다.</p>
+            </div>
+          </section>
         </div>
         <footer class="post-footer"><a class="button ghost" href="/#all-posts">전체 글로 돌아가기</a></footer>
       </article>
