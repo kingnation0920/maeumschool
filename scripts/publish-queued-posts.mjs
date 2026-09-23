@@ -99,14 +99,21 @@ function buildPostHtml({ title, lines, slug, imageFiles }) {
 
   const body = bodyLines
     .map((line, index) => {
-      const isHeading =
-        index > 0 &&
-        (line.endsWith("있어요") ||
-          line.endsWith("달라졌어요") ||
-          line.endsWith("보았습니다") ||
-          line.endsWith("하나요?"));
+      let block;
+      if (line.startsWith("### ")) {
+        block = `<h3>${escapeHtml(line.replace(/^###\s*/, ""))}</h3>`;
+      } else if (line.startsWith("## ")) {
+        block = `<h2>${escapeHtml(line.replace(/^##\s*/, ""))}</h2>`;
+      } else {
+        const isHeading =
+          index > 0 &&
+          (line.endsWith("있어요") ||
+            line.endsWith("달라졌어요") ||
+            line.endsWith("보았습니다") ||
+            line.endsWith("하나요?"));
+        block = isHeading ? `<h2>${escapeHtml(line)}</h2>` : `<p>${escapeHtml(line)}</p>`;
+      }
 
-      const block = isHeading ? `<h2>${escapeHtml(line)}</h2>` : `<p>${escapeHtml(line)}</p>`;
       const image = shouldInsertImage(index, bodyLines.length, imageQueue.length)
         ? imageQueue.shift()
         : null;
