@@ -119,7 +119,7 @@
     <script type="text/javascript">
       if (!wcs_add) var wcs_add = {};
       wcs_add["wa"] = "1af85d89318d180";
-      if (window.wcs) {
+      if (window.wcs && (location.hostname === "maeumschool.kr" || location.hostname === "www.maeumschool.kr")) {
         wcs_do();
       }
     </script>
@@ -128,7 +128,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-1H570QMDYQ');
+      if ((location.hostname === "maeumschool.kr" || location.hostname === "www.maeumschool.kr")) gtag('config', 'G-1H570QMDYQ');
     </script>
   </body>
 </html>
